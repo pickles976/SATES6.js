@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAT Collision Example</title>
+    <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://unpkg.com/three@0.146.0/build/three.module.js"
+          }
+        }
+    </script>
+</head>
+<body>
+    <script src="src/SAT.js" type="module"></script>
+
+    <script type="module">
+        import * as THREE from 'three'
+        import { CheckCollision, ShapeFromGeometry } from './src/SAT.js'
+
+        const box1 = new THREE.BoxGeometry(1, 1, 1)
+        const box2 = new THREE.BoxGeometry(2, 2, 2)
+
+        const collider1 = ShapeFromGeometry(box1)
+        const collider2 = ShapeFromGeometry(box2)
+
+        console.log(CheckCollision(collider1, collider2))
+    </script>
+</body>
+</html>

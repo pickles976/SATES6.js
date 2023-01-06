@@ -1,0 +1,25 @@
+{
+  "name": "sates6",
+  "version": "1.0.0",
+  "description": "Separating Axis Theorem in 3D",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pickles976/SATES6.js.git"
+  },
+  "keywords": [
+    "collision",
+    "SAT",
+    "physics",
+    "3D"
+  ],
+  "author": "Pedro Boechat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pickles976/SATES6.js/issues"
+  },
+  "homepage": "https://github.com/pickles976/SATES6.js#readme"
+}

@@ -1,5 +1,12 @@
-SAT.js
+SATES6.js 
 =====
+
+SATES6.js is an ES6 version of the [SAT.js](https://github.com/pboechat/SAT.js)
+
+SAT.js is useful when you want to test collision of two convex polyhedra, but don't want the overhead of a physics engine line Cannon.js or Ammo.js. It can take in geometries in the Three.js format.
+
+
+## SAT.js
 
 **SAT.js** is a Javascript implementation of the Separating Axis Theorem for convex polygons and polyhedra.
 
@@ -14,67 +21,25 @@ Based on [this article](http://www.geometrictools.com/Documentation/MethodOfSepa
 
 Add three.js and SAT.js to your page:
 
-	<script type="text/javascript" src="three.js"></script>
-    <script type="text/javascript" src="SAT.js"></script>
-
-#### Polygons
-
-With the vertices of your polygon, construct a *SAT.Polygon*:
-
-    var polyA = new SAT.Polygon([new THREE.Vector2(-0.5, -0.5), 
-    new THREE.Vector2(0.5, -0.5),
-    new THREE.Vector2(0.5, 0.5),
-    new THREE.Vector2(-0.5, 0.5),
-    ]);
-    var polyB = new SAT.Polygon(verticesB);
-
-Notice that the vertices *must* be in *counter-clockwise* order.
+	*TODO: SHOW USERS HOW YOU CAN IMPORT SATES6.js*
 
 #### Polyhedra
 
-With the vertices, edges and faces of your polyhedron, construct a *SAT.Shape*:
+Convert your Three.js geometries to a SAT.js shape object.
 
-    // 1x1x1 cube centered in origin
-    var polyA = new SAT.Shape(
-    // vertices
-    [
-		new THREE.Vector3(-0.5, 0.5, 0.5), new THREE.Vector3(-0.5, -0.5, 0.5),
-		new THREE.Vector3(0.5, -0.5, 0.5), new THREE.Vector3(0.5, 0.5, 0.5),
-		new THREE.Vector3(0.5, 0.5, -0.5), new THREE.Vector3(0.5, -0.5, -0.5),
-		new THREE.Vector3(-0.5, -0.5, -0.5), new THREE.Vector3(-0.5, 0.5, -0.5),
-	],
-	// edges
-	[
-		[0, 1], 
-		[1, 2], 
-		[2, 3], 
-		[3, 0],
-        [4, 5], 
-        [5, 6], 
-        [6, 7], 
-        [7, 4],
-        [3, 4], 
-        [2, 5], 
-        [0, 7], 
-        [1, 6]
-	],
-	// faces
-	[
-        [0, 1, 2, 3],  // front
-        [4, 5, 6, 7],  // back
-        [3, 2, 5, 4],  // right
-        [7, 6, 1, 0],  // left
-        [7, 0, 3, 4],  // top
-        [5, 2, 1, 6]   // bottom
-    ]);
-    var polyB = new SAT.Shape(verticesB, edgesB, facesB);
+    import * as THREE from 'three'
+    import { ShapeFromGeometry } from 'SAT.js'
 
-Your faces *must* reference your vertices in *counter-clockwise* order.
+    const box1 = new THREE.BoxGeometry(1, 1, 1)
+    const box2 = new THREE.BoxGeometry(2, 2, 2)
+
+    const collider1 = ShapeFromGeometry(box1)
+    const collider2 = ShapeFromGeometry(box2)
 
 #### Collision Checking
 
-	SAT.CheckCollision(polyA, polyB)
-
+    import { CheckCollision } from 'SAT.js'
+	CheckCollision(collider1, collider2)
 
 
 ----------
