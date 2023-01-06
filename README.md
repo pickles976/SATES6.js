@@ -23,9 +23,15 @@ Add three.js and SAT.js to your page:
 
 	npm install sates6
 
-Or add via CDN
+Or add via CDN using an importMap
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sates6.js/1.0.0/SAT.js></script>
+        <script type="importmap">
+        {
+          "imports": {
+            "SAT": "https://unpkg.com/sates6@1.0.0/src/SAT.js"
+          }
+        }
+    </script>
 
 
 
@@ -34,7 +40,7 @@ Or add via CDN
 Convert your Three.js geometries to a SAT.js shape object.
 
     import * as THREE from 'three'
-    import { ShapeFromGeometry } from 'sates6'
+    import { ShapeFromGeometry } from 'SAT'
 
     const box1 = new THREE.BoxGeometry(1, 1, 1)
     const box2 = new THREE.BoxGeometry(2, 2, 2)
@@ -44,7 +50,7 @@ Convert your Three.js geometries to a SAT.js shape object.
 
 #### Collision Checking
 
-    import { CheckCollision } from 'SAT.js'
+    import { CheckCollision } from 'SAT'
 	CheckCollision(collider1, collider2)
 
 
