@@ -21,14 +21,20 @@ Based on [this article](http://www.geometrictools.com/Documentation/MethodOfSepa
 
 Add three.js and SAT.js to your page:
 
-	*TODO: SHOW USERS HOW YOU CAN IMPORT SATES6.js*
+	npm install sates6
+
+Or add via CDN
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sates6.js/1.0.0/SAT.js></script>
+
+
 
 #### Polyhedra
 
 Convert your Three.js geometries to a SAT.js shape object.
 
     import * as THREE from 'three'
-    import { ShapeFromGeometry } from 'SAT.js'
+    import { ShapeFromGeometry } from 'sates6'
 
     const box1 = new THREE.BoxGeometry(1, 1, 1)
     const box2 = new THREE.BoxGeometry(2, 2, 2)
